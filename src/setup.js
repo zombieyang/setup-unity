@@ -117,6 +117,7 @@ async function postInstall(selfHosted) {
 async function findUnity(unityHubPath, unityVersion) {
     let unityPath = '';
     const output = await executeHub(unityHubPath, `editors --installed`);
+    console.log(output);
     const match = output.match(new RegExp(`${unityVersion}.+, installed at (.+)`));
     if (match) {
         unityPath = match[1];
